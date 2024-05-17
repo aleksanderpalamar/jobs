@@ -9,7 +9,7 @@ This project is a modern API for registering job vacancies using Golang,currentl
 - Using GoORM for communication with the database
 - Integrating Swagger for API documentation and testing
 - Creating a modern package structure for organizing the project
-- Implementing a complete job opportunities API with endpoints for searching, creating, editing, and deleting opportunities
+- Implementing a complete job vacancies API with endpoints for searching, creating, editing, and deleting opening.
 - Implementing automated tests to ensure API quality
 
 ## Installation
