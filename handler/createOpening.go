@@ -26,7 +26,6 @@ func CreateOpeningHandler(ctx *gin.Context) {
 		Salary:      request.Salary,
 		Title:       request.Title,
 		Description: request.Description,
-		Keywords:    request.Keywords,
 	}
 
 	if err := db.Create(&opening).Error; err != nil {

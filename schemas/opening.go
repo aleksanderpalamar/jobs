@@ -17,7 +17,6 @@ type Opening struct {
 	Salary      int64
 	Title       string
 	Description string
-	Keywords    string
 }
 
 type OpeningResponse struct {
@@ -34,5 +33,4 @@ type OpeningResponse struct {
 	Salary      int64     `json:"salary"`
 	Title       string    `json:"title"`
 	Description string    `json:"description"`
-	Keywords    string    `json:"keywords"`
 }
