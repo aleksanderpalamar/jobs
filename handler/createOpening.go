@@ -7,6 +7,17 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @BasePath /api/v1
+// @Summary Create Opening
+// @Description Create Opening
+// @Tags Openings
+// @Accept json
+// @Produce json
+// @Param request body CreateOpeningRequest true "Request body"
+// @Success 200 {object} CreateOpeningResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /openings [post]
 func CreateOpeningHandler(ctx *gin.Context) {
 	request := CreateOpeningRequest{}
 	ctx.Bind(&request)
