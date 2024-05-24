@@ -117,11 +117,11 @@ definitions:
 info:
   contact: {}
 paths:
-  /openings:
+  /opening:
     delete:
       consumes:
       - application/json
-      description: Delete Opening
+      description: Delete a new job opening
       parameters:
       - description: Opening identification
         in: query
@@ -143,13 +143,13 @@ paths:
           description: Not Found
           schema:
             $ref: '#/definitions/handler.ErrorResponse'
-      summary: Delete Opening
+      summary: Delete opening
       tags:
       - Openings
     get:
       consumes:
       - application/json
-      description: Show Opening
+      description: Show a job opening
       parameters:
       - description: Opening identification
         in: query
@@ -171,13 +171,13 @@ paths:
           description: Not Found
           schema:
             $ref: '#/definitions/handler.ErrorResponse'
-      summary: Show Opening
+      summary: Show opening
       tags:
       - Openings
     post:
       consumes:
       - application/json
-      description: Create Opening
+      description: Create a new job opening
       parameters:
       - description: Request body
         in: body
@@ -200,22 +200,22 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/handler.ErrorResponse'
-      summary: Create Opening
+      summary: Create opening
       tags:
       - Openings
     put:
       consumes:
       - application/json
-      description: Update a job Opening
+      description: Update a job opening
       parameters:
-      - description: Opening identification
+      - description: Opening Identification
         in: query
         name: id
         required: true
         type: string
-      - description: Opening data to update
+      - description: Opening data to Update
         in: body
-        name: request
+        name: opening
         required: true
         schema:
           $ref: '#/definitions/handler.UpdateOpeningRequest'
@@ -238,7 +238,26 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/handler.ErrorResponse'
-      summary: Update Openings
+      summary: Update opening
+      tags:
+      - Openings
+  /openings:
+    get:
+      consumes:
+      - application/json
+      description: List all job openings
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListOpeningsResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: List openings
       tags:
       - Openings
 swagger: "2.0"

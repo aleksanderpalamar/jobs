@@ -17,11 +17,11 @@ func initializeRoutes(router *gin.Engine) {
 	{
 		v1.GET("/opening", handler.ShowOpeningHandler)
 		v1.POST("/opening", handler.CreateOpeningHandler)
-		v1.PUT("/opening", handler.UpdateOpeningHandler)
 		v1.DELETE("/opening", handler.DeleteOpeningHandler)
-		v1.GET("/openings", handler.ListOpeningHandler)
-	}
+		v1.PUT("/opening", handler.UpdateOpeningHandler)
+		v1.GET("/openings", handler.ListOpeningsHandler)
 
+	}
 	// Initialize Swagger
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 }
