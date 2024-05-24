@@ -7,7 +7,7 @@ on:
 
 jobs:
   swagger-doc:
-    runs-on: ubuntu-20.04  # Alteramos de ubuntu-latest para uma versão específica
+    runs-on: ubuntu-20.04  # Mantemos a alteração para uma versão específica
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,7 +19,7 @@ jobs:
         run: swag init -g ./main.go --output ./output  # Certifique-se de que o comando está correto
 
       - name: Deploy documentation
-        uses: actions/deploy-pages@v2.4.1
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: ${{ secrets.GH_TOKEN }}
-          branch: gh-pages  # Certifique-se de que esta configuração está correta
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./output
