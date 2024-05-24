@@ -1,13 +1,12 @@
 name: Swagger Doc
-
 on:
   push:
     branches:
-      - main
+       - main
 
 jobs:
   swagger-doc:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu- latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -21,7 +20,7 @@ jobs:
         run: swagger generate --yaml --output output/swagger.json
 
       - name: Deploy documentation
-        uses: actions/check-gh-pages@v3.1
+        uses: actions/create-page@v2.4.1
         with:
           repo_token: ${{ secrets.GH_TOKEN }}
           ref: main
