@@ -7,16 +7,23 @@ on:
 
 jobs:
   swagger-doc:
-    runs-on: ubuntu-20.04  # Mantemos a alteração para uma versão específica
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: go get github.com/swaggo/swag/cmd/swag
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.18'  # Certifique-se de usar a versão correta do Go
+
+      - name: Install swag
+        run: |
+          go install github.com/swaggo/swag/cmd/swag@latest
+          echo "$HOME/go/bin" >> $GITHUB_PATH
 
       - name: Generate Swagger Doc
-        run: swag init -g ./main.go --output ./output  # Certifique-se de que o comando está correto
+        run: swag init -g ./main.go --output ./output
 
       - name: Deploy documentation
         uses: peaceiris/actions-gh-pages@v3
